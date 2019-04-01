@@ -6,6 +6,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VisualizerPlugin = require('webpack-visualizer-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+// const nodeExternals = require('webpack-node-externals');
+
 module.exports = {
 	mode: 'none', // 设置环境变量，优先级最高 'production' 自动压缩代码 | 'development' | 'none'
 	entry: { // 入口文件，可以有多个，对象的 key 为输出的 name
@@ -154,7 +156,7 @@ module.exports = {
 		}
 	},
 	plugins: [ // 插件，按上下顺序执行
-		new CleanWebpackPlugin(['dist']), //清理dist文件夹
+		new CleanWebpackPlugin(), //清理dist文件夹，插件升级到2.x版本后，默认不用传递参数
 		new CopyWebpackPlugin([ // src/assets 下文件直接复制到 dist 目录下
 			{
 				from: 'src/assets/'
