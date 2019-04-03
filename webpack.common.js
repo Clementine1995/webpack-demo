@@ -40,16 +40,7 @@ module.exports = {
 							importLoaders: 1 // 0 => 无 loader(默认); 1 => postcss-loader; 2 => postcss-loader, sass-loader
 						}
 					},
-					{
-						loader: 'postcss-loader', // 在 css 中类似 babel 的功能
-						options: {
-							plugins: (loader) => [
-								require('precss')(), // 囊括了许多插件来支持类似 Sass 的特性，比如 CSS 变量，套嵌，mixins 等。
-								require('autoprefixer')() // 添加了浏览器私有前缀，它使用 Can I Use 上面的数据，需要在 package.json 中配置 browserslist。
-							]
-						}
-					}
-
+					'postcss-loader'
 				],
 			},
 			{
